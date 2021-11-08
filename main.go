@@ -35,7 +35,7 @@ func init() {
 		if strings.HasSuffix(args[0], "xlsx") {
 			inputFile = args[0]
 		}
-		t, err := strconv.Atoi(args[0])
+		t, err := strconv.Atoi(args[1])
 		if err != nil {
 			log.Println("please input a valid number, use default: ", total)
 			return
