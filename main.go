@@ -143,7 +143,7 @@ func save(pairs []SkuPair) {
 	// Set active sheet of the workbook.
 	f.SetActiveSheet(index)
 	// Save spreadsheet by the given path.
-	if err := f.SaveAs(fmt.Sprintf("Sku-%s.xlsx", time.Now().Format("2006-01-02 15:04:05"))); err != nil {
+	if err := f.SaveAs(fmt.Sprintf("Sku-%s.xlsx", time.Now().Format("2006-01-02 15-04-05"))); err != nil {
 		fmt.Println(err)
 	}
 }
