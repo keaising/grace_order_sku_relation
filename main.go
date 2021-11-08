@@ -111,6 +111,9 @@ func main() {
 	var pairs []SkuPair
 	for i := 0; i < len(matrix); i++ {
 		for j := i + 1; j < len(matrix); j++ {
+			if matrix[i][j] == 0 {
+				continue
+			}
 			pairs = append(pairs, SkuPair{
 				Sku1:  skuIds[i],
 				Sku2:  skuIds[j],
