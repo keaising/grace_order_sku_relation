@@ -84,7 +84,7 @@ func main() {
 	// 遍历每一行数据
 	// 这里要求订单号必须是排好序的
 
-	log.Println("5. iter order", len(rows), len(skuIds))
+	log.Println("5. iter order, order count:", len(rows), ", sku count", len(skuIds))
 	for start := 0; start < len(rows); {
 		i := 1
 		for start+i < len(rows) && rows[start][1] == rows[start+i][1] {
@@ -122,11 +122,15 @@ func main() {
 		}
 	}
 
-	log.Println("7. sort pairs", len(pairs))
+	log.Println("7. sort pairs, pairs count: ", len(pairs))
 	sort.SliceStable(pairs, func(i, j int) bool {
 		return pairs[i].Count > pairs[j].Count
 	})
 
+	if len(pairs) < total || total == 0 {
+		total = len(pairs)
+		log.Println("8. [info] only", total, "pairs can be found")
+	}
 	log.Println("8. save first", total, "lines")
 	save(pairs)
 
